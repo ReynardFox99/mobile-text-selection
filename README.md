@@ -1,11 +1,16 @@
-### mobile-text-selection 介绍
+### `mobile-text-selection` 介绍
 
-移动端 h5 长按选择文本的工具， 屏蔽了安卓和 ios 系统选中文本后的弹窗。 返回选中的文本、起始点和终点的坐标
+移动端 h5 长按选择文本的工具， 屏蔽了安卓和 ios 系统选中文本后的弹窗。
+
+返回选中的文本、起始点和终点的坐标
+
 mobile terminal custom text selection, compatible width ios and android. long press pop-up window provided by the system are forbidden.
 
 ### 安装
 
+```
 npm i mobile-text-selection
+```
 
 ### 使用
 
@@ -33,6 +38,6 @@ textSelection.init();
 
 ### Demo
 
-    还没写
+[demo](https://codesandbox.io/s/mobile-text-selection-example-zc9k3?file=/src/App.js)
 
 ### 第一次学着写 npm 包（紧张
