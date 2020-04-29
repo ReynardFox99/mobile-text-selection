@@ -1,10 +1,11 @@
 {
   "name": "mobile-text-selection",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "h5文本长按选择, 屏蔽了系统的弹窗.兼容ios和安卓. mobile terminal custom text selection, compatible width ios and android. long press pop-up window provided by the system are forbidden.",
   "main": "build/index.js",
   "scripts": {
-    "build": "rm -rf build && babel lib -d build"
+    "build": "rm -rf build && babel lib -d build",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "text",
@@ -13,9 +14,11 @@
   ],
   "author": "ReynardFox99",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReynardFox99/mobile-text-selection.git"
+  },
+  "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-arrow-functions": "^7.8.3",
@@ -23,5 +26,8 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/runtime": "^7.9.2",
     "@babel/runtime-corejs3": "^7.9.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4"
   }
 }
