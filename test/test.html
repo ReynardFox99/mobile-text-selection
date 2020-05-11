@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../build/utils.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <wrapper id="wrapper1">
+      <grandparent>
+        <parent>
+          <current id="current1">current</current>
+          <other></other>
+          <other></other>
+          text1
+        </parent>
+      </grandparent>
+    </wrapper>
+    <!--  -->
+    <wrapper id="wrapper2">
+      <grandparent>
+        <parent>
+          <current id="current2">current</current>
+          <nextother>
+            <text>text2</text>
+          </nextother>
+        </parent>
+      </grandparent>
+    </wrapper>
+
+    <!--  -->
+    <wrapper id="wrapper3">
+      <grandparent>
+        <parent>
+          <current id="current3">current</current>
+        </parent>
+        <other></other>
+        <text>text3</text>
+      </grandparent></wrapper
+    >
+    <!--  -->
+    <wrapper id="wrapper4"
+      ><grandparent>
+        <parent>
+          <current id="current4"
+            >current
+            <text>text4</text>
+          </current>
+        </parent>
+      </grandparent></wrapper
+    >
+    <!--  -->
+    <wrapper id="wrapper5">
+      <grandparent>
+        <parent>
+          <current id="current5">current</current>
+        </parent>
+      </grandparent>
+      <text>text5</text></wrapper
+    >
+    <!--  -->
+    <wrapper id="wrapper6">
+      <grandparent>
+        <parent>
+          <current id="current6">current</current>
+          <nextother></nextother>
+        </parent>
+        <parent>
+          <text>text6</text>
+        </parent>
+      </grandparent>
+    </wrapper>
+    <!--  -->
+    <wrapper id="wrapper7">
+      <grandparent>
+        <parent>
+          <current id="current7">current</current>
+          <nextother></nextother>
+        </parent>
+        <parent></parent>
+      </grandparent>
+    </wrapper>
+    <!--  -->
+    <wrapper id="wrapper8">
+      <sense id="3">
+        做事；办事。如：说干就干；鼓足干劲。秦简夫《剪发待宾》第三折：“他则知道我是个学士，不知小官所干事务。”亦指善于办事。如：干练；干略。<consult
+          type="reference"
+          >参见“<a id="current8">干才</a>”。</consult
+        >
+      </sense>
+    </wrapper>
+  </body>
+</html>
+<script>
+  window.onload = function () {
+    const textCase = document.getElementsByTagName("wrapper");
+    for (let i = 0; i < textCase.length; i++) {
+      const currentNode = document.getElementById(`current${i + 1}`);
+      const container = document.getElementById(`wrapper${i + 1}`);
+      const textNode = getNextTextNode(currentNode.childNodes[0], container);
+      console.log(`textNode${i + 1}`, textNode);
+    }
+  };
+</script>
