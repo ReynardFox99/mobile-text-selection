@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .content {
+      background-color: aquamarine;
+      position: relative;
+    }
+    .slip {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: -50px;
+      left: 0;
+      background-color: #fff;
+      clip-path: inset(70px 230px 45px 30px round 10px);
+    }
+    .clip {
+      position: absolute;
+      height: 50px;
+      width: 100px;
+      /* background-color: rgba(255, 255, 255, 0.5); */
+      box-shadow: 0px 1px 2px 1px #666, inset 0px 0px 20px 10px #fff;
+      border-radius: 5px;
+      left: 30px;
+      top: 20px;
+    }
+  </style>
+  <body>
+    <div class="content">
+      在文字录入比赛（打字比赛）中，最公平的比赛用文本就是随机文本，这个随机汉字生成器便是为此所作。普通人的汉字录入速度一般是每分钟几十个到一百多个，我们可以生成一两千字的随机汉字文本，让比赛者录入完这些汉字，依据他们的比赛用时和正确率判断名次。生成随机汉字的原始文字一般选择常用汉字，经过随机排列之后只能一个字一个字的输入，对参赛者来说是相对公平的方案。
+      <div class="slip">
+        在文字录入比赛（打字比赛）中，最公平的比赛用文本就是随机文本，这个随机汉字生成器便是为此所作。普通人的汉字录入速度一般是每分钟几十个到一百多个，我们可以生成一两千字的随机汉字文本，让比赛者录入完这些汉字，依据他们的比赛用时和正确率判断名次。生成随机汉字的原始文字一般选择常用汉字，经过随机排列之后只能一个字一个字的输入，对参赛者来说是相对公平的方案。
+      </div>
+      <div class="clip"></div>
+    </div>
+  </body>
+</html>
+<script>
+  window.onload = function () {
+    const content = document.getElementsByClassName("content")[0];
+  };
+</script>
