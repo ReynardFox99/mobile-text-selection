@@ -10,7 +10,7 @@
     <wrapper id="wrapper1">
       <grandparent>
         <parent>
-          <current id="current1">current</current>
+          <current id="current1">兄弟节点 应该找到text</current>
           <other></other>
           <other></other>
           text1
@@ -21,7 +21,7 @@
     <wrapper id="wrapper2">
       <grandparent>
         <parent>
-          <current id="current2">current</current>
+          <current id="current2">兄弟节点的子节点 应该找到text</current>
           <nextother>
             <text>text2</text>
           </nextother>
@@ -33,49 +33,50 @@
     <wrapper id="wrapper3">
       <grandparent>
         <parent>
-          <current id="current3">current</current>
+          <current id="current3">父元素的兄弟节点 应该找到text</current>
         </parent>
         <other></other>
-        <text>text3</text>
+       text3
       </grandparent></wrapper
     >
     <!--  -->
-    <wrapper id="wrapper4"
+    <wrapper id="wrapper4">
+      <grandparent>
+        <parent>
+          <current id="current4">父元素兄弟节点的子节点 应该找到text</current>
+          <nextother></nextother>
+        </parent>
+        <parent>
+          <text>text4</text>
+        </parent>
+      </grandparent>
+    </wrapper>
+    <!--  -->
+    <wrapper id="wrapper5"
       ><grandparent>
         <parent>
-          <current id="current4"
-            >current
-            <text>text4</text>
+          <current id="current5"
+            >子节点
+            <text>text5</text>
           </current>
         </parent>
       </grandparent></wrapper
     >
     <!--  -->
-    <wrapper id="wrapper5">
-      <grandparent>
-        <parent>
-          <current id="current5">current</current>
-        </parent>
-      </grandparent>
-      <text>text5</text></wrapper
-    >
-    <!--  -->
     <wrapper id="wrapper6">
       <grandparent>
         <parent>
-          <current id="current6">current</current>
-          <nextother></nextother>
-        </parent>
-        <parent>
-          <text>text6</text>
+          <current id="current6">父元素的父元素的兄弟节点的子节点</current>
         </parent>
       </grandparent>
-    </wrapper>
+      <text>text6</text></wrapper
+    >
+    
     <!--  -->
     <wrapper id="wrapper7">
       <grandparent>
         <parent>
-          <current id="current7">current</current>
+          <current id="current7">找不到</current>
           <nextother></nextother>
         </parent>
         <parent></parent>
@@ -86,20 +87,31 @@
       <sense id="3">
         做事；办事。如：说干就干；鼓足干劲。秦简夫《剪发待宾》第三折：“他则知道我是个学士，不知小官所干事务。”亦指善于办事。如：干练；干略。<consult
           type="reference"
-          >参见“<a id="current8">干才</a>”。</consult
+          >参见“<a id="current8">干才(一个实例 应该找到 ”。)</a>”。</consult
         >
       </sense>
+    </wrapper>
+    <!--  这个是有appendChild之后的情况 之前没处理导致了死循环-->
+    <wrapper id="wrapper9">
+      <grandparent>
+        <parent>
+          <current id="current9">有tools的情况 找不到</current>
+          <nextother></nextother>
+        </parent>
+        <parent></parent>
+      </grandparent><grandparent2 class="mobile-text-selection-tools"></grandparent2><div ></div>
     </wrapper>
   </body>
 </html>
 <script>
   window.onload = function () {
+    // 测试的时候不要把标签自动换行 不然会产生多的回车符 会模拟不出个别情况 
     const textCase = document.getElementsByTagName("wrapper");
     for (let i = 0; i < textCase.length; i++) {
       const currentNode = document.getElementById(`current${i + 1}`);
       const container = document.getElementById(`wrapper${i + 1}`);
       const textNode = getNextTextNode(currentNode.childNodes[0], container);
-      console.log(`textNode${i + 1}`, textNode);
+      console.log(`textNode${i + 1}：${currentNode.childNodes[0].textContent} --->`, textNode);
     }
   };
 </script>
