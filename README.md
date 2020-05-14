@@ -41,7 +41,10 @@ textSelection.init();
 
 ### Demo
 
-[demo](https://codesandbox.io/s/mobile-text-selection-example-zc9k3?file=/src/App.js)
+[demo (codesandbox)](https://codesandbox.io/s/mobile-text-selection-example-zc9k3?file=/src/App.js)
+
+
+![demo (gif)](https://github.com/ReynardFox99/mobile-text-selection/blob/master/demo.gif)
 
 ### 第一次学着写 npm 包（紧张
 ### 更新记录
