@@ -22,7 +22,10 @@ const textSelection = new TextSelection({
   container: textWrapper, // 容器 必须要传哦
   cursorColor: "#1788bd", // 左右指针颜色 可以不传  "red" || "#333333" || "rgba(125,125,125)"
   rectsColor: "rgba(23,136,189,0.35)", // 选中文字的颜色 可以不传  "#333333aa" || "rgba(125,125,125, 0.5)" 需要是个透明色哦
-  longTapDuration: 400, // 长按的时间 默认是400
+  longTapDuration: 400, // 长按的时间 默认是600
+  magnifierWidth: 100, // 放大镜宽度 默认100px
+  magnifierHeight: 50, // 放大镜高度 默认50px
+  magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
   selectCb: () => {}, // 开始选择的回调 可以不传
   finishCb: ({
     text, // 选中的文字
@@ -41,3 +44,9 @@ textSelection.init();
 [demo](https://codesandbox.io/s/mobile-text-selection-example-zc9k3?file=/src/App.js)
 
 ### 第一次学着写 npm 包（紧张
+### 更新记录
+
+v0.1.0: 
+ - 增加了放大镜功能 创建时候增加了放大镜的配置项
+ - 增加了游标交换的功能
+ - 修复了每行选不到最后一个字的问题..
