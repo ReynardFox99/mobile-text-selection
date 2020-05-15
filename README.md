@@ -44,12 +44,18 @@ textSelection.init();
 [demo (codesandbox)](https://codesandbox.io/s/mobile-text-selection-example-zc9k3?file=/src/App.js)
 
 
-![demo (gif)](https://github.com/ReynardFox99/mobile-text-selection/blob/master/demo.gif)
+![alt demo (gif)](https://github.com/ReynardFox99/mobile-text-selection/blob/master/demo.gif "demo (gif)")
 
 ### 第一次学着写 npm 包（紧张
+
+参考了[easy-marker](https://github.com/luojilab/easy-marker.git)
+
 ### 更新记录
 
 v0.1.0: 
  - 增加了放大镜功能 创建时候增加了放大镜的配置项
  - 增加了游标交换的功能
  - 修复了每行选不到最后一个字的问题..
+
+ ### 待办
+ - 如果容器有滚动条的话 出大问题额..
