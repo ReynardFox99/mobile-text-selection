@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./mobile-text-selection.min.js"></script>
+  </head>
+  <body>
+    <button onclick="del()">删除</button>
+
+    <div id="wrapper">
+      <div id="container">
+        废芳蜻堡淡锋衫拘樱吹乐勤脑坏剧益篮仅夏挤辟获著煌厚汪幻笔跪厨由煮唐陷祖权刺没室观层王贝跟园键巨努评堆牺除器柄扩匆裁宇够既骨本级立耍还多滋吉啄福活逗吧堤朱损汇转茫扑恋试直慕的挺纹与谱侨例马问湖天圆仓州蔽恭飞馒电良准求杨钻持尺误以律圈狂被智凉绕耽愁剖微握滨雅鉴亡熊块兰薯风职莲泥宵歌紫何饼嫩些武样培融吨两兵孔面访丛港接诸推寄昆乘绒替都裂然猴形虏感芒隶避窜丢舌雀阀咽且齿乡仙痒监亭旱陆颗每判五骑颤供岛旅棕仔鲜辈鸡信敬驰欺锦督蔬概启罩款腐学商志弱稳灰较僵纳桶叹之扫括瓣秒中诉音棒稀击虚洪差守种们奶疲存磨鼻追课河许燥炊雨材女拨便蔑饥临索帝拍笨锹到盆育苏队海袜过架令界泡故址猎肝萌滴打颂晚搭揉控街俊切娃研蹈积脱尿闲纪脚斑方验送慨彩悔芝纠尘铺恩回下惰丝境群消印溉局沟贺斥公矩我宫伪独九螺古刷津旷图徐冲编迷违书砌凝巷费暴字抹蒜场带思刘煎移扯裤洗艺茧抗峡暮具躬测腾糖黑喷根把勺从歼哗铁年摊向厌坡汉迟关轨晒凭团作吞拒陕捡逝壁萍操棚儿鲁励享锯蒙僚身拾哲加称规役色亿实属识洲垃肚配陡闸招伍刮筹闯插伶桑领辨落秃尸谎特铲叉扭孤琴开约粒羡百忠慧固爆腹担慢管腰蜘雁苍码跳垂口率扒赖籍水掘甚杂待羊狡半远痰新裙郎香聚野郊鄙辱模一危纵型叨烫弃二惹顾乎颜看扰娘舱怒昏拉牧世蛮盯越初宴充热欠铃像阶轰俩舒生蹄光敲摸好滥久禾端窃邮巧嘱帅代喜淘眨涂熔银妇姓私乒药昨恶她明惊闪姥倾羽了警绘雄崇矛十砍渔哄炼泄霜族订田总债死照挡县疫尝医么指蝇肌训行睁丙虫钥歇森四阵绢繁毕否万予考交横勒撤龙于攻龄宁确价讨棉需衔雹侮岸茶捧肯悼挥纤延类咐起夹豆召股冷详连孕柳驳绩啦膏饮纲泊借草膝质城钩诵粥忘人患玻询血害慌爷体秤削嗽搞灯封吓榨沾哥刻艰伤凳恰力骆柱父扮撕坊成返窗屑妨摘怀童杏困粮表算品剩胳顽合狐誉蓄戚划杠间状仗碧亏脏馅筝细展怠赌念山分盖伯绳蛋望膊径即附宋心坑按睛谅岔鸟第沃台牵驼举弹暗垮桥稍弟魄撞双哭忌量销铅跃般锁案搜木墨蠢熄旬估耻垄彼乳奴剑膜救饶慈此统隔届祝酒议反劫邀狱潜伴竟更唯垫妥萄菠疮墙涛燃拦肩粉拿荷胀榆说循姿穴祸气浊失捎掩典漫路闻唱利絮丹甜有跨邻蛙烘少悬餐提译苦掀官穷饰流庄杯其画申匀调蚂某换环教泳搏昌恢复挂内魔底摇宿计件屿铜原嚼绪汤险萝拐早玩探尊蚀笋滩乙松已常前审箱弦鼓养选凡旧皮败冠疯给锻坐蕉遭授碑茄石堵织斜炒至兴厕仆候麻录遮冰夕袍可堂寇破碗倍躺企烂空筐葱填入受剪畏晓执朋批赚艇沈素要植狠德为贷盗雕纸脸制视道符嘉绿期幸刃斧赤卜割恳炎槐菊数掉挖镜炉顺通
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let textSelection;
+  window.onload = function () {
+    const wrapper = document.getElementById("wrapper");
+    const container = document.getElementById("container");
+    const TextSelection = window.TextSelection.default;
+    textSelection = new TextSelection({
+      container: container, // 必须要传哦
+      cursorColor: "#1788bd", // 左右指针颜色 可以不传  "red" || "#333333" || "rgba(125,125,125, 0.5)"
+      rectsColor: "rgba(23,136,189,0.35)", // 选中文字的颜色 可以不传    "#333333aa" || "rgba(125,125,125, 0.5)" 需要是个透明色哦
+      longTapDuration: 600, // 长按的时间 默认是600
+      magnifierWidth: 100, // 放大镜宽度 默认100px
+      magnifierHeight: 50, // 放大镜高度 默认50px
+      magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
+      selectCb: this.handleSelect, // 开始选择的回调 可以不传
+      finishCb: this.handleFinish, // 选完的回调 也可以不传
+    });
+    // 初始化
+    textSelection.init();
+  };
+  function del() {
+    textSelection.destroy();
+  }
+</script>
