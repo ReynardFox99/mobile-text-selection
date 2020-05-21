@@ -43,19 +43,28 @@ textSelection.init();
 
 [demo (codesandbox)](https://codesandbox.io/s/mobile-text-selection-example-zc9k3?file=/src/App.js)
 
-
 ![alt demo (gif)](https://github.com/ReynardFox99/mobile-text-selection/blob/master/demo.gif "demo (gif)")
 
 ### 第一次学着写 npm 包（紧张
 
 参考了[easy-marker](https://github.com/luojilab/easy-marker.git)
 
+用 npm run b 的话可以创建浏览器
+
 ### 更新记录
 
-v0.1.0: 
- - 增加了放大镜功能 创建时候增加了放大镜的配置项
- - 增加了游标交换的功能
- - 修复了每行选不到最后一个字的问题..
+v0.1.0:
 
- ### 待办
- - 如果容器有滚动条的话 出大问题额..
+- 增加了放大镜功能 创建时候增加了放大镜的配置项
+- 增加了游标交换的功能
+- 修复了每行选不到最后一个字的问题..
+
+v0.1.1
+
+- 修复了放在 iframe 里游标不移动的情况
+- 修复了多次在同一个容器上创建 TextSelection 时候的叠加问题...
+- 阻止事件冒泡
+
+### 待办
+
+- 如果容器有滚动条的话 出大问题额..
