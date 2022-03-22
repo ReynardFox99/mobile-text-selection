@@ -35,8 +35,10 @@ const textSelection = new TextSelection({
   magnifierHeight: 50, // 放大镜高度 默认50px
   magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
   magnifierBackgroundColor: '#fff', // 放大镜背景色，理论上应设为文字背景色 默认白色（该配置项从 v0.1.2 起生效）
-  selectCb: () => {}, // 开始选择的回调 可以不传
-  finishCb: ({
+  selectCb: () => {}, // 从1.3开始替换为onStart了  参数跟onStart一样
+  finishCb: () => {}, // 从1.3开始替换为onFinish了  参数跟onFinish一样
+  onStart: () => {}, // 开始选择的回调 可以不传
+  onFinish: ({
     text, // 选中的文字
     startX, //  相对于容器 前指针右侧第一个字的左上角的x坐标
     startY, //  相对于容器 前指针右侧第一个字的左上角的y坐标

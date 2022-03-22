@@ -37,10 +37,10 @@
       magnifierWidth: 100, // 放大镜宽度 默认100px
       magnifierHeight: 50, // 放大镜高度 默认50px
       magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
-      selectCb: () => {
-        console.log("正在长按或正在移动游标");
+      onStart: () => {
+        console.log("开始选择:正在长按或正在移动游标");
       }, // 开始选择的回调 可以不传
-      finishCb: ({ text, startX, startY, endX, endY }) => {
+      onFinish: ({ text, startX, startY, endX, endY }) => {
         console.log(
           "回调文字和坐标",
           text,
