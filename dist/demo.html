@@ -18,20 +18,48 @@
 </html>
 <script>
   let textSelection;
+  const customDom = document.createElement("div");
+  customDom.style.backgroundColor = "#1788bd";
+  customDom.style.borderRadius = "0 50% 50% 50%";
+  customDom.style.width = "50px";
+  customDom.style.height = "50px";
+
   window.onload = function () {
     const wrapper = document.getElementById("wrapper");
     const container = document.getElementById("container");
     const TextSelection = window.TextSelection.default;
     textSelection = new TextSelection({
       container: container, // 必须要传哦
+      cursorDom: customDom, // 自定义游标dom(右侧)
       cursorColor: "#1788bd", // 左右指针颜色 可以不传  "red" || "#333333" || "rgba(125,125,125, 0.5)"
       rectsColor: "rgba(23,136,189,0.35)", // 选中文字的颜色 可以不传    "#333333aa" || "rgba(125,125,125, 0.5)" 需要是个透明色哦
       longTapDuration: 600, // 长按的时间 默认是600
       magnifierWidth: 100, // 放大镜宽度 默认100px
       magnifierHeight: 50, // 放大镜高度 默认50px
       magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
-      selectCb: this.handleSelect, // 开始选择的回调 可以不传
-      finishCb: this.handleFinish, // 选完的回调 也可以不传
+      selectCb: () => {
+        console.log("正在长按或正在移动游标");
+      }, // 开始选择的回调 可以不传
+      finishCb: ({ text, startX, startY, endX, endY }) => {
+        console.log(
+          "回调文字和坐标",
+          text,
+          "start: (",
+          startX,
+          ",",
+          startY,
+          ") end:(",
+          endX,
+          ",",
+          endY,
+          ")"
+        );
+      }, // 选完的回调 也可以不传
+      tokenizer: (str) => {
+        console.log("需要分词的文字:", str);
+        console.log("需要返回分词起始位置和长度");
+        return [Math.floor(Math.random() * 10), 2];
+      },
     });
     // 初始化
     textSelection.init();

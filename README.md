@@ -17,9 +17,17 @@ npm i mobile-text-selection
 ```js
 import TextSelection from "mobile-text-selection";
 
+// 自定义游标(右侧)
+const customCursorDom = document.createElement("div");
+customCursorDom.style.backgroundColor = "#1788bd";
+customCursorDom.style.borderRadius = "0 50% 50% 50%";
+customCursorDom.style.width = "50px";
+customCursorDom.style.height = "50px";
+
 const textWrapper = document.getElementById("textWrapper");
 const textSelection = new TextSelection({
   container: textWrapper, // 容器 必须要传哦
+  cursorDom: customDom, // 自定义游标dom 只传右侧就可以 不传就是默认游标 如果传了 那么下面cursorColor就失效了
   cursorColor: "#1788bd", // 左右指针颜色 可以不传  "red" || "#333333" || "rgba(125,125,125)"
   rectsColor: "rgba(23,136,189,0.35)", // 选中文字的颜色 可以不传  "#333333aa" || "rgba(125,125,125, 0.5)" 需要是个透明色哦
   longTapDuration: 400, // 长按的时间 默认是600
@@ -35,6 +43,11 @@ const textSelection = new TextSelection({
     endX, //  相对于容器 后指针左侧第一个字的右上角的x坐标
     endY, // 相对于容器 后指针左侧第一个字的右上角的y坐标
   }) => {}, // 选完的回调 也可以不传
+  tokenizer: (str) => {
+    // 需要分词的文字
+    // 需要返回分词起始位置和长度
+    return [index, length];
+  },
 });
 // 初始化
 textSelection.init();
@@ -74,7 +87,11 @@ v0.1.4
 
 - 修复了container有margin的时候 放大镜内容错位的问题
 
+v0.2.0
+- 游标自定义
+- 支持长按选中时调用端分词
+
 ### 待办
 
 - 如果容器有滚动条的话 出大问题额..
-
+- 游标之后可能还需要上下对称的 和字并排 像华为的浏览器里那样
