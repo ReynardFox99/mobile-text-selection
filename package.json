@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "rm -rf build && babel lib -d build --watch",
-    "b": "npm run build && rm dist/mobile-text-selection.js && browserify build --standalone TextSelection -o dist/mobile-text-selection.js",
+    "b": "rm -rf build && babel lib -d build && rm dist/mobile-text-selection.js && browserify build --standalone TextSelection -o dist/mobile-text-selection.js",
     "prepublish": "npm run build"
   },
   "keywords": [

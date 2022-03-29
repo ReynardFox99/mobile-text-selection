@@ -638,7 +638,9 @@ var TextSelect = /*#__PURE__*/function () {
         _ref$onFinish = _ref.onFinish,
         onFinish = _ref$onFinish === void 0 ? function () {} : _ref$onFinish,
         _ref$onStart = _ref.onStart,
-        onStart = _ref$onStart === void 0 ? function () {} : _ref$onStart;
+        onStart = _ref$onStart === void 0 ? function () {} : _ref$onStart,
+        _ref$onCancel = _ref.onCancel,
+        onCancel = _ref$onCancel === void 0 ? function () {} : _ref$onCancel;
     (0, _classCallCheck2.default)(this, TextSelect);
     (0, _defineProperty2.default)(this, "blur", function () {
       // 失焦时候隐藏所有指针和底色
@@ -651,6 +653,8 @@ var TextSelect = /*#__PURE__*/function () {
       _this.selectStatus = "none";
 
       _this.magnifier.hide();
+
+      _this.onCancel();
     });
     (0, _defineProperty2.default)(this, "init", function () {
       // 初始化
@@ -979,8 +983,6 @@ var TextSelect = /*#__PURE__*/function () {
 
 
       if (!rect || rect && rect.length === 0) return;
-      console.dir(node);
-      console.log('===', node.length, index);
 
       var _ref4 = _this.tokenizer && _this.tokenizer(node, index) || [-1, 0],
           _ref5 = (0, _slicedToArray2.default)(_ref4, 2),
@@ -1128,6 +1130,22 @@ var TextSelect = /*#__PURE__*/function () {
     });
     if (!container) throw Error("TextSelection 容器不能为空");
 
+    if (tokenizer && typeof tokenizer !== "function") {
+      throw Error("参数tokenizer类型错误");
+    }
+
+    if (onFinish && typeof onFinish !== "function") {
+      throw Error("参数onFinish类型错误");
+    }
+
+    if (onStart && typeof onStart !== "function") {
+      throw Error("参数onStart类型错误");
+    }
+
+    if (onCancel && typeof onCancel !== "function") {
+      throw Error("参数onCancel类型错误");
+    }
+
     if (container._textSelection) {
       container._textSelection.destroy();
     }
@@ -1159,7 +1177,8 @@ var TextSelect = /*#__PURE__*/function () {
     this.tokenizer = tokenizer; // 回调
 
     this.onFinish = onFinish;
-    this.onStart = onStart; // 选中标记
+    this.onStart = onStart;
+    this.onCancel = onCancel; // 选中标记
 
     this.rects = null;
     this.rectsColor = rectsColor; // 放大镜

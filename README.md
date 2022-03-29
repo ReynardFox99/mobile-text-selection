@@ -38,6 +38,7 @@ const textSelection = new TextSelection({
   selectCb: () => {}, // 从1.3开始替换为onStart了  参数跟onStart一样
   finishCb: () => {}, // 从1.3开始替换为onFinish了  参数跟onFinish一样
   onStart: () => {}, // 开始选择的回调 可以不传
+  onCancel: () => {}, // 失焦的回调 可以不传
   onFinish: ({
     text, // 选中的文字
     startX, //  相对于容器 前指针右侧第一个字的左上角的x坐标
