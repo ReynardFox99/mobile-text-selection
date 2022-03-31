@@ -26,6 +26,7 @@ const textSelection = new TextSelection({
   magnifierWidth: 100, // 放大镜宽度 默认100px
   magnifierHeight: 50, // 放大镜高度 默认50px
   magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
+  magnifierBackgroundColor: '#fff', // 放大镜背景色，理论上应设为文字背景色 默认白色（该配置项从 v0.1.2 起生效）
   selectCb: () => {}, // 开始选择的回调 可以不传
   finishCb: ({
     text, // 选中的文字
@@ -64,6 +65,10 @@ v0.1.1
 - 修复了放在 iframe 里游标不移动的情况
 - 修复了多次在同一个容器上创建 TextSelection 时候的叠加问题...
 - 阻止事件冒泡
+
+v0.1.2
+
+- 增加 magnifierBackgroundColor 配置项
 
 ### 待办
 
