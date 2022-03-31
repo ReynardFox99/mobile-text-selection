@@ -1,6 +1,6 @@
 {
   "name": "mobile-text-selection",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "h5文本长按选择, 屏蔽了系统的弹窗.兼容ios和安卓. mobile terminal custom text selection, compatible width ios and android. long press pop-up window provided by the system are forbidden.",
   "main": "build/index.js",
   "scripts": {
