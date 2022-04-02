@@ -66,10 +66,15 @@ v0.1.1
 - 修复了多次在同一个容器上创建 TextSelection 时候的叠加问题...
 - 阻止事件冒泡
 
-v0.1.2
+v0.1.3
 
 - 增加 magnifierBackgroundColor 配置项
+
+v0.1.4
+
+- 修复了container有margin的时候 放大镜内容错位的问题
 
 ### 待办
 
 - 如果容器有滚动条的话 出大问题额..
+
