@@ -35,6 +35,18 @@ const textSelection = new TextSelection({
   magnifierHeight: 50, // 放大镜高度 默认50px
   magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
   magnifierBackgroundColor: '#fff', // 放大镜背景色，理论上应设为文字背景色 默认白色（该配置项从 v0.1.2 起生效）
+  menu: [ // 菜单 可以不传 默认是[]
+    {
+      key: "copy", // 必须要传
+      icon: img.cloneNode(), // 图片dom 可以不传 默认没有
+      text: "复制", // 文本
+      click: (params) => { // 回调 params: {text: string}
+        alert(`点击了复制: ${JSON.stringify(params)}`);
+      },
+    }
+  ],
+  menuColor: "#ffffff", // 菜单文字颜色 可以不传 默认#ffffff
+  menuBackgroundColor: "#000000", // 菜单背景色 可以不传 默认#000000
   selectCb: () => {}, // 从1.3开始替换为onStart了  参数跟onStart一样
   finishCb: () => {}, // 从1.3开始替换为onFinish了  参数跟onFinish一样
   onStart: () => {}, // 开始选择的回调 可以不传
