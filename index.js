@@ -1,2 +1,2 @@
-import MobileTextSelection from "./lib";
+import MobileTextSelection from "./lib/index";
 export default MobileTextSelection;

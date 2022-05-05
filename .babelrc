@@ -4,13 +4,16 @@
       "@babel/preset-env",
       {
         "targets": {
-          "browsers": ["android >= 4", "ios >= 8"]
+          "browsers": [
+            "android >= 4",
+            "ios >= 8"
+          ]
         }
       }
     ]
   ],
   "plugins": [
-    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-class-properties", // 箭头函数属性blur = () => {}
     [
       "@babel/plugin-transform-runtime",
       {

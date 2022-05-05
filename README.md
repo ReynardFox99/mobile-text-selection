@@ -68,17 +68,20 @@ const textSelection = new TextSelection({
 textSelection.init();
 ```
 
+浏览器直接引入可见`example/demo.html`
 ### Demo
 
 [demo (codesandbox)](https://codesandbox.io/s/mobile-text-selection-example-zc9k3?file=/src/App.js)
 
 ![alt demo (gif)](https://github.com/ReynardFox99/mobile-text-selection/blob/master/demo.gif "demo (gif)")
 
+或者见`example/demo.html`
+
 ### 第一次学着写 npm 包（紧张
 
 参考了[easy-marker](https://github.com/luojilab/easy-marker.git)
 
-用 npm run b 的话可以创建浏览器
+浏览器使用的话请下载`dist/mobile-text-selection.umd.js`
 
 ### 更新记录
 

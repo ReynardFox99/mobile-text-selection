@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./mobile-text-selection.js"></script>
+    <script src="../dist/mobile-text-selection.umd.js"></script>
   </head>
   <style>
     * {
@@ -70,6 +70,11 @@
     </div>
   </body>
 </html>
+<!-- 引入esm的话要用这段
+<script type="module">
+  import TextSelection from "../dist/mobile-text-selection.esm.js"
+  new TextSelection(...)
+</script> -->
 <script>
   // 选中的文字
   let selectedText = "";
@@ -90,7 +95,7 @@
       : document.body;
     const img = new Image();
     img.src = "http://iph.href.lu/50x50?bg=ff0000";
-    const TextSelection = window.TextSelection.default;
+    const TextSelection = window.TextSelection;
     textSelection = new TextSelection({
       container: container, // 必须要传哦
       cursorDom: customDom, // 自定义游标dom(右侧) 可以不传 传了这个则cursorColor失效

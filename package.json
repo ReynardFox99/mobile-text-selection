@@ -2,10 +2,11 @@
   "name": "mobile-text-selection",
   "version": "0.1.4",
   "description": "h5文本长按选择, 屏蔽了系统的弹窗.兼容ios和安卓. mobile terminal custom text selection, compatible width ios and android. long press pop-up window provided by the system are forbidden.",
-  "main": "build/index.js",
+  "main": "dist/mobile-text-selection.umd.js",
+  "module": "dist/mobile-text-selection.esm.js",
   "scripts": {
-    "build": "rm -rf build && babel lib -d build --watch",
-    "b": "rm -rf build && babel lib -d build && rm dist/mobile-text-selection.js && browserify build --standalone TextSelection -o dist/mobile-text-selection.js",
+    "build": "rm -rf dist  && rollup -c ./rollup.config.js  --environment NODE_ENV:production",
+    "dev": "rm -rf dist && rollup -c --watch",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -19,17 +20,26 @@
     "type": "git",
     "url": "https://github.com/ReynardFox99/mobile-text-selection.git"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-arrow-functions": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/runtime": "^7.9.2",
-    "@babel/runtime-corejs3": "^7.9.2"
+    "@babel/runtime-corejs3": "^7.9.2",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "browserify": "^16.5.1",
+    "rollup": "^2.70.2",
+    "rollup-plugin-terser": "^7.0.2"
   },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "browserify": "^16.5.1"
-  }
+  "files": [
+    "dist/",
+    "lib/",
+    "example/"
+  ]
 }
