@@ -58,10 +58,10 @@ const textSelection = new TextSelection({
     endX, //  相对于容器 后指针左侧第一个字的右上角的x坐标
     endY, // 相对于容器 后指针左侧第一个字的右上角的y坐标
   }) => {}, // 选完的回调 也可以不传
-  tokenizer: (str) => {
-    // 需要分词的文字
-    // 需要返回分词起始位置和长度
-    return [index, length];
+  tokenizer: (str, index) => {
+    // str是选中的那一段文字 index是选中的字的索引
+    // 需要返回分词起始位置startIndex和长度length
+    return [startIndex, length];
   }, // 分词 可以不传
 });
 // 初始化
