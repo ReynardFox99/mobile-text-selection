@@ -27,14 +27,14 @@ customCursorDom.style.height = "50px";
 const textWrapper = document.getElementById("textWrapper");
 const textSelection = new TextSelection({
   container: textWrapper, // 容器 必须要传哦
-  cursorDom: customDom, // 自定义游标dom 只传右侧就可以 不传就是默认游标 如果传了 那么下面cursorColor就失效了
+  cursorDom: customDom, // 自定义游标dom 只传右侧就可以 可以不传 不传就是默认游标 如果传了 那么下面cursorColor就失效了
   cursorColor: "#1788bd", // 左右指针颜色 可以不传  "red" || "#333333" || "rgba(125,125,125)"
   rectsColor: "rgba(23,136,189,0.35)", // 选中文字的颜色 可以不传  "#333333aa" || "rgba(125,125,125, 0.5)" 需要是个透明色哦
-  longTapDuration: 400, // 长按的时间 默认是600
-  magnifierWidth: 100, // 放大镜宽度 默认100px
-  magnifierHeight: 50, // 放大镜高度 默认50px
-  magnifierOffset: 50, // 放大镜向上偏移的距离 默认50px
-  magnifierBackgroundColor: '#fff', // 放大镜背景色，理论上应设为文字背景色 默认白色（该配置项从 v0.1.2 起生效）
+  longTapDuration: 400, // 长按的时间 可以不传 默认是600
+  magnifierWidth: 100, // 放大镜宽度 可以不传 默认100px 如果不想显示放大镜就把宽高都改成0
+  magnifierHeight: 50, // 放大镜高度 可以不传 默认50px
+  magnifierOffset: 50, // 放大镜向上偏移的距离 可以不传 默认50px
+  magnifierBackgroundColor: '#fff', // 放大镜背景色 可以不传 默认和container背景一样（该配置项从 v0.1.2 起生效） 感谢@zangzimi
   menu: [ // 菜单 可以不传 默认是[]
     {
       key: "copy", // 必须要传
@@ -47,8 +47,8 @@ const textSelection = new TextSelection({
   ],
   menuColor: "#ffffff", // 菜单文字颜色 可以不传 默认#ffffff
   menuBackgroundColor: "#000000", // 菜单背景色 可以不传 默认#000000
-  selectCb: () => {}, // 从1.3开始替换为onStart了  参数跟onStart一样
-  finishCb: () => {}, // 从1.3开始替换为onFinish了  参数跟onFinish一样
+  selectCb: () => {}, // 从0.1.3开始替换为onStart了  参数跟onStart一样
+  finishCb: () => {}, // 从0.1.3开始替换为onFinish了  参数跟onFinish一样
   onStart: () => {}, // 开始选择的回调 可以不传
   onCancel: () => {}, // 失焦的回调 可以不传
   onFinish: ({
@@ -62,10 +62,16 @@ const textSelection = new TextSelection({
     // 需要分词的文字
     // 需要返回分词起始位置和长度
     return [index, length];
-  },
+  }, // 分词 可以不传
 });
 // 初始化
 textSelection.init();
+
+// 隐藏
+textSelection.blur();
+
+// 销毁
+textSelection.destroy();
 ```
 
 浏览器直接引入可见`example/demo.html`
@@ -106,9 +112,13 @@ v0.1.4
 - 修复了container有margin的时候 放大镜内容错位的问题
 
 v0.2.0
-- 游标自定义
+- 支持游标自定义
 - 支持长按选中时调用端分词
-- 修改了回调函数名字
+- 修改了回调函数名字 selectCb改成onStart finishCb改成onFinish
+- 增加失焦时候的onCancel回调
+- 增加长按结束弹出操作菜单
+- 改用rollup构建了
+- 修改 magnifierBackgroundColor配置项的默认值
 
 ### 待办
 
